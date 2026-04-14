@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+<style>
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-animated-text {
+    font-size: 48px;
+    color: #fff;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-animated-spinner {
+    border-radius: 50%;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+</style>
+</head>
+<body>
+    <div class="loading-screen">
+        <!-- loading animation will go here -->
+    </div>
+    <script>
+        let loadingScreen = document.querySelector('.loading-screen');
+        let loadingText = document.createElement('span');
+        loadingText.classList.add('loading-animated-text');
+        loadingText.textContent = 'Loading...';
+
+        const animatedSpinner = document.createElement('div');
+        animatedSpinner.classList.add('loading-animated-spinner');
+
+        loadingScreen.appendChild(loadingText);
+        loadingScreen.appendChild(animatedSpinner);
+
+        // Animate the spinner
+        function animateSpinner() {
+            animatedSpinner.style.transform = `rotate(${Math.random() * 360}deg)`;
+        }
+
+        setInterval(animateSpinner, 1000 / 60); // update every 60ms
+
+        // Fade out after 2 seconds
+        setTimeout(() => {
+            loadingScreen.style.opacity = 0;
+        }, 2000);
+
+        // Then fade in and show the main content
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            // Your main game or app code goes here
+        }, 2500);
+    </script>
+</body>
+</html>
