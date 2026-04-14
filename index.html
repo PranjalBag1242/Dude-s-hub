@@ -1,16 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dudes' Hub</title>
     <style>
-        /* Default styles */
         body {
-            background-color: black; /* White by default */
-            color: white;
+            background: #000;
+            margin: 0%;
+        }
+        .header{
+            z-index: 500;
+            position:fixed;
             padding: 5px;
+            width: 100%;
+            background-color: #414141;
+        }
+        .logbutt{
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 5px;
+            font-size: 20px;
+            box-shadow: 0 0 5px greenyellow;
+            text-decoration: none;
+        }
+        .logbutt:hover{
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 5px;
+            font-size: 20px;
+            box-shadow: 0 0 10px greenyellow;
+            text-decoration: none;
         }
         .welcometext{
             color: gold;
+            margin-top: 40px;
             font: caption;
             text-align: center;
             font-size: 50px;
@@ -26,6 +54,29 @@
             background: linear-gradient(#ffffff, #424242);
             border-radius: 30px;
         }
+        .owngame{
+            background: linear-gradient(90deg, violet, white, aqua);
+            padding: 10px;
+            border-radius: 20px;
+            overflow-x: hidden;
+        }
+        .owngame button{
+            background-color: #00a2ff;
+            width: 100%;
+            padding: 20px;
+            border: none;
+            font-size: 30px;
+            animation: bigsmall 1s infinite none;
+        }
+        .owngame button:hover{
+            background-color: #0084d1;
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 30px;
+            animation: none;
+        }
         .contentwrap{
             font-family: Geneva, Verdana, sans-serif;
             color: #000;
@@ -33,48 +84,153 @@
             font-size: 26px;
             border-radius: 20px;
             padding: 10px;
+            margin: 20px;
+        }
+        .contentwrap strong{
+            padding: 3px;
+            background-color: gold;
+            border-bottom: goldenrod solid 2px;
+            border-radius: 5px;
         }
         .contentwrap a{
             text-decoration: none;
             color: #0076bb;
         }
-        .unrealcont{
+        .contentwrap hello{
+            color: darkblue;
+            padding: 5px;
+            border-radius: 15px;
+            background-color: wheat;
+            border-bottom: solid rgb(201, 182, 146) 3px;
+        }
+        .h8{
+            background-color: whitesmoke;
+            border-radius: 10px;
+            width: 50%;
+            padding: 3px;
+            animation: updown 3s infinite;
+            font-size: 31px;
+        }
+        .engineinfocont{
             background: #501313;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 30px;
             color: white;
             border-radius: 20px;
             padding: 10px;
-            border: ridge gold;
+            border: ridge goldenrod;
+            margin: 20px
+        }
+        .engineinfocont strong{
+            padding: 2px;
+            background: darkblue;
+            border-radius: 5px;
+        }
+        .engineinfocont a{
+            color: #0076bb;
+        }
+        @keyframes bigsmall{
+            0% {
+                transform: scale(80%);
+                background-color: white;
+                color: black;
+            }
+            50%{
+                transform: scale(110%);
+                background-color: black;
+                color: white;
+            }
+            100%{
+                transform: scale(80%);
+                background-color: white;
+                color: black;
+            }
+        }
+        @keyframes updown{
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(50px) translateX(0); }
+            100% { transform: translateY(0) translateX(0); }
         }
     </style>
 </head>
 <body>
-    <div class="welcometext"><strong><u>Welcome to Dude's hub.</u></strong></div><br>
+    <div id="header" class="header">
+        <button class="logbutt">Log in</button>
+        <button><s>Get the sorce code</s></button>
+    </div><br>
+    <div class="welcometext"><strong><u>Welcome to Dude's hub.</u></strong></div>
     <div class="contentwrap">
-        Hello, welcome to dude's hub. We make games, crash games, find bugs, solve them...<br>
+        <hello>Hello, welcome to dude's hub. We make games, crash games, find bugs, solve them...</hello><br>
         <p>
             Here you can:
-            <ul><li>Download most of the popular game engines.</li></ul>
-            <ul><li>Know some knoledge about some game engines.(still in development)</li></ul>
-            <ul><li>Trust. As we provide official websites.</li></ul>
+            <ul><li><strong>Download</strong> most of the popular game engines.</li></ul>
+            <ul><li><strong>Know</strong> some <strong>knowledge</strong> about some game engines.(still in development)</li></ul>
+            <ul><li><strong>Trust.</strong> As we provide official websites.</li></ul>
         </p>
         <p>
             If you are a game developer or you are interested in games, follow this website. You don't need to sign in.<br>
-            Please scroll for more information.
-        </p>
+            <div class="h8">Please scroll for more information.🔻</div>
+        </p><br>
+        <p>
+            Play some online games:<br>
+            <a href="online_games/snake.html">Snake</a>
+        </p><br>
         <p>
             You should visit:
             <ul>
-                <li><a href="Formulae-bank.html">Formula bank</a></li>
+                <li><a href="Formulae-bank.html">Formula bank</a>(still developing)</li>
             </ul>
         </p>
-    </div><br>
-    <div class="unrealcont">
+    </div>
+
+    <div class="owngame">
+        <button onclick="gotogamestore()">Click here to see <strong>our games.</strong> Made by dudes...</button>
+    </div>
+
+    <div class="engineinfocont">
         <div class="headings">Unreal Engine</div>
         <p>
-            About:
+            <strong>About:</strong> This is one of the most popular game engines. You can say the god of game engines.<br>
+            It has a powerful graphics. You can make the real like games with it.
+        </p>
+        <p>
+            <strong>Requirments:</strong>
+            <ol>
+                <li>Oparating System: Windows 10 (64-bit)</li><br>
+                <li>Processor: Intel Core i3-6300 or AMD FX-4350(Processor: Intel Core i5-2300 or AMD FX-6300 recomended)</li><br>
+                <li>Memory: 8 GB RAM(16 GB recomended)</li><br>
+                <li>Graphics Card: NVIDIA GeForce GTX 1060 or AMD Radeon RX 480</li><br>
+                <li>Storage: 25 GB available space for the engine only.</li>
+            </ol>
+        </p><br>
+        <p>
+            If you want <strong>smooth performance,</strong> you need these:
+            <ol>
+                <li>Operating System: Windows 10 (64-bit)</li><br>
+                <li>Processor: Intel Core i7-9700K or AMD Ryzen 9 3900X</li><br>
+                <li>Memory: 32 GB RAM</li><br>
+                <li>Graphics Card: NVIDIA GeForce RTX 2070 Super or AMD Radeon RX 6800 XT</li><br>
+                <li>Storage: 25 GB available space for the engine only.</li>
+            </ol>
+        </p><br>
+        If you want more information, <a href="https://www.unrealengine.com/">click here</a> and go to the official website.<br><br>
+        Download the game engine from the official website: <a href="wait.html">Download</a>
+    </div>
+    <div class="engineinfocont">
+        <div class="headings">Unity</div>
+        <p>
+            <strong>About:</strong> 
         </p>
     </div>
+    <div class="engineinfocont">
+        <div class="headings">Godot game engine</div>
+
+    </div>
 </body>
+<script>
+    let upheader = document.getElementById("header")
+    function gotogamestore() {
+        open("ourgames.html")
+    }
+</script>
 </html>
